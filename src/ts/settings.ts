@@ -1,5 +1,6 @@
 export const settings = {
     swissFlag: {
+        id: 'Swiss-flag',
         rect: {
             width: 280,
             height: 65,
@@ -10,6 +11,7 @@ export const settings = {
             height: 280,
             backgroundColor: "white",
         },
-        backgroundColor: "red"
+        backgroundColor: "red",
+        strokeColor: "black"
     }
 }
