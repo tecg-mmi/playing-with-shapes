@@ -1,14 +1,14 @@
-import {Origine} from "./Origine";
+import {iOrigine} from "./iOrigine";
 
 export class Rectangle {
     public readonly width: number;
     public readonly height: number;
     public readonly ctx: CanvasRenderingContext2D;
-    public readonly origine: Origine;
+    public readonly origine: iOrigine;
     public readonly color: string;
 
     constructor(ctx: CanvasRenderingContext2D,
-                origine: Origine,
+                origine: iOrigine,
                 width: number,
                 height: number,
                 color: string
