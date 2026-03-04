@@ -1,32 +1,16 @@
 import {settings} from "./settings";
+import {Rectangle} from "./framework26/Rectangle";
+import {Origine} from "./framework26/Origine";
 
 const app = {
     init() {
-        this.swissFlagCanvasElement = document.getElementById(settings.swissFlag.id) as HTMLCanvasElement;
+        this.canvasElement = document.getElementById(settings.shapesCanvasID) as HTMLCanvasElement;
 
+        this.ctx = this.canvasElement.getContext('2d') as CanvasRenderingContext2D;
 
-        this.ctx = this.swissFlagCanvasElement.getContext("2d");
+        this.background = new Rectangle(this.ctx, new Origine(0, 0), this.canvasElement.width, this.canvasElement.height, settings.shapesBackgroundColor);
 
-        this.ctx.fillStyle = settings.swissFlag.backgroundColor;
-
-        this.ctx.fillRect(0, 0, this.swissFlagCanvasElement.width, this.swissFlagCanvasElement.height);
-
-
-
-        this.ctx.clearRect(
-            (this.swissFlagCanvasElement.width / 2) - (settings.swissFlag.rect.width / 2),
-            (this.swissFlagCanvasElement.height / 2) - (settings.swissFlag.rect.height / 2),
-            settings.swissFlag.rect.width,
-            settings.swissFlag.rect.height
-        );
-
-        this.ctx.clearRect(
-            (this.swissFlagCanvasElement.width / 2) - (settings.swissFlag.rect2.width / 2),
-            (this.swissFlagCanvasElement.height / 2) - (settings.swissFlag.rect2.height / 2),
-            settings.swissFlag.rect2.width,
-            settings.swissFlag.rect2.height
-        );
-
+        this.background.draw();
 
     },
 }
