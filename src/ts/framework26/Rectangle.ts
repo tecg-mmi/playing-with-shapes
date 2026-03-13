@@ -1,7 +1,8 @@
 import {Shape} from "./Shape";
 import {IRectangle} from "./interfaces/IRectangle";
+import {IDrawable} from "./interfaces/IDrawable";
 
-export class Rectangle extends Shape implements IRectangle {
+export class Rectangle extends Shape implements IRectangle, IDrawable {
     public readonly width: number;
     public readonly height: number;
 
