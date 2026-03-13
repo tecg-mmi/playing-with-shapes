@@ -1,16 +1,12 @@
 import {Rectangle} from "./Rectangle";
-import {IOrigin} from "./IOrigin";
+import {ISquare} from "./Interfaces/ISquare";
 
-export class Square extends Rectangle {
+export class Square extends Rectangle implements ISquare {
     public readonly size: number;
 
-    constructor(ctx: CanvasRenderingContext2D,
-                origine: IOrigin,
-                size: number,
-                color: string,
-                ) {
-        super(ctx, origine, size, size, color);
-        this.size = size;
+    constructor(square: ISquare) {
+        super({ctx: square.ctx, origine: square.origine, color: square.color, width: square.size, height: square.size});
+        this.size = square.size;
     }
 
 

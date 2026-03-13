@@ -1,13 +1,14 @@
-import {IOrigin} from "./IOrigin";
+import {IOrigin} from "./Interfaces/IOrigin";
+import {IShape} from "./Interfaces/IShape";
 
-export class Shape {
+export abstract class Shape implements IShape {
     public readonly ctx: CanvasRenderingContext2D;
     public readonly origine: IOrigin;
     public readonly color: string;
 
-    constructor(ctx: CanvasRenderingContext2D, origine: IOrigin, color: string) {
-        this.ctx = ctx;
-        this.origine = origine;
-        this.color = color;
+    protected constructor(shape: IShape) {
+        this.ctx = shape.ctx;
+        this.origine = shape.origine;
+        this.color = shape.color;
     }
 }

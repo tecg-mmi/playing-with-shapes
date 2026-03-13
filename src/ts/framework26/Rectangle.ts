@@ -1,15 +1,14 @@
-import {IOrigin} from "./IOrigin";
 import {Shape} from "./Shape";
+import {IRectangle} from "./Interfaces/IRectangle";
 
-export class Rectangle extends Shape {
+export class Rectangle extends Shape implements IRectangle {
     public readonly width: number;
     public readonly height: number;
 
-
-    constructor(ctx: CanvasRenderingContext2D, origine: IOrigin, color: string, width: number, height: number) {
-        super(ctx, origine, color);
-        this.width = width;
-        this.height = height;
+    constructor(rectangle: IRectangle) {
+        super({ctx: rectangle.ctx, origine: rectangle.origine, color: rectangle.color});
+        this.width = rectangle.width;
+        this.height = rectangle.height;
     }
 
     draw() {
