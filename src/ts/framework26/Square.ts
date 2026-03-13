@@ -1,11 +1,11 @@
 import {Rectangle} from "./Rectangle";
-import {iOrigine} from "./iOrigine";
+import {IOrigin} from "./IOrigin";
 
 export class Square extends Rectangle {
     public readonly size: number;
 
     constructor(ctx: CanvasRenderingContext2D,
-                origine: iOrigine,
+                origine: IOrigin,
                 size: number,
                 color: string,
                 ) {

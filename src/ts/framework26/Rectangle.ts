@@ -1,29 +1,21 @@
-import {iOrigine} from "./iOrigine";
+import {IOrigin} from "./IOrigin";
+import {Shape} from "./Shape";
 
-export class Rectangle {
+export class Rectangle extends Shape {
     public readonly width: number;
     public readonly height: number;
-    public readonly ctx: CanvasRenderingContext2D;
-    public readonly origine: iOrigine;
-    public readonly color: string;
 
-    constructor(ctx: CanvasRenderingContext2D,
-                origine: iOrigine,
-                width: number,
-                height: number,
-                color: string
-    ) {
-        this.ctx = ctx;
+
+    constructor(ctx: CanvasRenderingContext2D, origine: IOrigin, color: string, width: number, height: number) {
+        super(ctx, origine, color);
         this.width = width;
         this.height = height;
-        this.origine = origine;
-        this.color = color;
     }
 
     draw() {
         this.ctx.save();
         this.ctx.fillStyle = this.color;
-        this.ctx.fillRect(this.origine.x, this.origine.y, this.width, this.height);
+        this.ctx.fillRect(this.origine.x - this.width / 2, this.origine.y - this.height / 2, this.width, this.height);
         this.ctx.restore();
     }
 }
