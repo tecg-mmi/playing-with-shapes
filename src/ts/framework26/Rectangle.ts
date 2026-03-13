@@ -1,29 +1,25 @@
-import {IOrigin} from "./IOrigin";
+import {Shape} from "./Shape";
+import {IRectangle} from "./interfaces/IRectangle";
 
-export class Rectangle {
+export class Rectangle extends Shape implements IRectangle {
     public readonly width: number;
     public readonly height: number;
-    public readonly origin: IOrigin;
-    public readonly color: string;
-    public readonly ctx: CanvasRenderingContext2D;
 
-    constructor(
-        ctx: CanvasRenderingContext2D,
-        width: number,
-        height: number,
-        origin: IOrigin,
-        color: string) {
-        this.width = width;
-        this.height = height;
-        this.origin = origin;
-        this.color = color;
-        this.ctx = ctx;
+    constructor(rectangle: IRectangle) {
+        super({
+            ctx: rectangle.ctx,
+            color: rectangle.color,
+            origin: rectangle.origin,
+        });
+        this.width = rectangle.width;
+        this.height = rectangle.height;
     }
 
+    //draw a rectangle centered from this.x and this.y
     draw() {
         this.ctx.save();
         this.ctx.fillStyle = this.color;
-        this.ctx.fillRect(this.origin.x, this.origin.y, this.width, this.height);
+        this.ctx.fillRect(this.origin.x - this.width / 2, this.origin.y - this.height / 2, this.width, this.height);
         this.ctx.restore();
     }
 
