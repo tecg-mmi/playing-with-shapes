@@ -1,5 +1,6 @@
 import {IOrigin} from "./Interfaces/IOrigin";
 import {IShape} from "./Interfaces/IShape";
+import {IDrawable} from "./Interfaces/IDrawable";
 
 export abstract class Shape implements IShape {
     public readonly ctx: CanvasRenderingContext2D;
