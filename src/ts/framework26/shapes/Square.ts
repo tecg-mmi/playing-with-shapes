@@ -1,6 +1,6 @@
 import {Rectangle} from "./Rectangle";
-import {ISquare} from "./Interfaces/ISquare";
-import {IDrawable} from "./Interfaces/IDrawable";
+import {IDrawable} from "../interfaces/IDrawable";
+import {ISquare} from "../interfaces/shapes/ISquare";
 
 export class Square extends Rectangle implements ISquare, IDrawable {
     public readonly size: number;

@@ -1,4 +1,4 @@
-import {IInterval} from "./Interfaces/IInterval";
+import {IInterval} from "../interfaces/IInterval";
 
 export class Random {
 
