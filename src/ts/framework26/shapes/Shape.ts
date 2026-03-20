@@ -1,6 +1,6 @@
-import {IShape} from "../interfaces/IShape";
 import {IOrigin} from "../interfaces/IOrigin";
 import {IStroke} from "../interfaces/IStroke";
+import {IShape} from "../interfaces/shapes/IShape";
 
 export abstract class Shape implements IShape {
     public readonly ctx: CanvasRenderingContext2D;
@@ -16,6 +16,7 @@ export abstract class Shape implements IShape {
         this.rotation = shape.rotation ?? 0;
         this.stroke = shape.stroke;
     }
+
     protected fillAndStroke() {
         this.ctx.fillStyle = this.color;
         this.ctx.fill();

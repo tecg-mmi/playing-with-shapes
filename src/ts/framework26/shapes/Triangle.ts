@@ -21,7 +21,9 @@ export class Triangle extends Shape implements ITriangle, IDrawable {
     draw() {
         this.ctx.save();
         this.ctx.translate(this.origine.x, this.origine.y);
-        this.ctx.rotate(this.rotation);
+        if (this.rotation) {
+            this.ctx.rotate(this.rotation);
+        }
         this.ctx.beginPath();
         this.ctx.moveTo(0, -this.height / 2);
         this.ctx.lineTo(this.base / 2, this.height / 2);
